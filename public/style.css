@@ -64,6 +64,8 @@ section{padding-block:72px}
 .fee-big .u{font-size:22px}
 .fee-big .or{font-size:18px;color:var(--sub);margin-inline:8px}
 .fee-sub{font-size:13px;color:var(--sub)}
+.fee-general{margin-top:18px;padding-top:14px;border-top:2px dashed var(--line);font-size:14px;color:var(--sub);line-height:1.7}
+.fee-general strong{color:var(--ink)}
 .fee-compare{margin-top:18px;padding-top:14px;border-top:2px dashed var(--line);display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--sub);flex-wrap:wrap}
 .strike{text-decoration:line-through;text-decoration-thickness:2px}
 @media (max-width:820px){.hero-grid{grid-template-columns:1fr}.fee-card{max-width:420px}}

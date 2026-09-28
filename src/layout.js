@@ -2,7 +2,7 @@
 export const site = {
   name: "タイパ賃貸",
   origin: "https://taipachintai.com",
-  homeTitle: "タイパ賃貸｜内見に行けなくても決まる部屋探し。先に申し込めば仲介手数料0円 or 3.3万円",
+  homeTitle: "タイパ賃貸｜内見に行けない人が、いちばん得をするお部屋探し。仲介手数料0円 or 3.3万円",
   description:
     "上京・遠方・忙しくて内見に行けない人のための賃貸仲介。退去予定の部屋は先に申し込んで押さえ、空いている部屋はオンライン内見で確認。先に申し込めば仲介手数料は0円か3.3万円です。",
   line: "https://lin.ee/nbLxeOV",
@@ -98,7 +98,7 @@ ${p.body}
   <div class="wrap foot-grid">
     <div>
       <p class="foot-logo">タイパ賃貸</p>
-      <p class="foot-tag">内見に行けなくても決まる部屋探し</p>
+      <p class="foot-tag">内見に行けなくても決まるお部屋探し</p>
     </div>
     <dl class="foot-company">
       <div><dt>運営会社</dt><dd>${site.company}</dd></div>
