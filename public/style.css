@@ -109,13 +109,14 @@ section{padding-block:72px}
 
 /* price */
 .price{background:var(--card);border-block:1px solid var(--line)}
-.price-table{overflow-x:auto;border:2px solid var(--ink);border-radius:var(--r)}
-.price-table table{width:100%;border-collapse:collapse;min-width:480px}
-.price-table th,.price-table td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line)}
-.price-table tr:last-child td{border-bottom:0}
-.price-table thead th{background:var(--ink);color:#fff;font-size:14px;font-weight:500}
-.price-table td.num,.price-table th.num{text-align:right;white-space:nowrap}
-.price-table td.strong{font-family:var(--disp);font-weight:900;font-size:22px;color:var(--sea)}
+.price-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.price-card{border:2px solid var(--ink);border-radius:var(--r);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--paper)}
+.pc-case{font-weight:700;line-height:1.5}
+.pc-case small{font-weight:400;font-size:13px;color:var(--sub)}
+.pc-fee{font-family:var(--disp);font-weight:900;font-size:36px;color:var(--sea);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pc-fee span{font-size:18px;margin-left:2px}
+.price-extra{margin-top:14px;font-weight:500}
+@media (max-width:700px){.price-cards{grid-template-columns:1fr}}
 
 /* flow */
 .flow-list{list-style:none;margin:0;padding:0;counter-reset:f;display:grid;gap:0}
