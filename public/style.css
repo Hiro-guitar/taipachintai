@@ -114,7 +114,15 @@ section{padding-block:72px}
 .pc-case small{font-weight:400;font-size:13px;color:var(--sub)}
 .pc-fee{font-family:var(--disp);font-weight:900;font-size:36px;color:var(--sea);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
 .pc-fee span{font-size:18px;margin-left:2px}
-.price-extra{margin-top:14px;font-weight:500}
+.price-rule{font-weight:700;margin:-16px 0 24px}
+.price-group{display:grid;gap:12px;margin-bottom:28px}
+.pg-head{font-family:var(--disp);font-weight:700;font-size:18px}
+.pg-note{font-size:14px;color:var(--sub)}
+.price-group.muted .price-card{border-color:#9AA4A7;background:var(--card)}
+.price-group.muted .pc-fee{color:var(--ink)}
+.price-card.wide{max-width:calc(50% - 8px)}
+.pc-fee.small-fee{font-size:26px}
+@media (max-width:700px){.price-card.wide{max-width:none}}
 @media (max-width:700px){.price-cards{grid-template-columns:1fr}}
 
 /* flow */
