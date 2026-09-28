@@ -85,7 +85,7 @@ ${jsonLd(p)}
   <div class="wrap head-row">
     <a class="logo" href="/"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h12M6 21.5h12M7.5 2.5v3.2c0 2 1.3 3.4 4.5 6.3-3.2 2.9-4.5 4.3-4.5 6.3v3.2M16.5 2.5v3.2c0 2-1.3 3.4-4.5 6.3 3.2 2.9 4.5 4.3 4.5 6.3v3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9.5 19.5c.6-1.6 1.4-2.3 2.5-3.2 1.1.9 1.9 1.6 2.5 3.2z" fill="currentColor"/></svg>タイパ賃貸</a>
     <nav class="head-nav" aria-label="メニュー">
-      <a href="/#why">安い理由</a>
+      <a href="/#why">できること</a>
       <a href="/#price">料金</a>
       <a href="/#flow">流れ</a>
       <a href="/#faq">よくある質問</a>
