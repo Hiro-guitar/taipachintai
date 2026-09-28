@@ -1,0 +1,11 @@
+{
+  "name": "taipachintai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "marked": "16.4.1"
+  }
+}
