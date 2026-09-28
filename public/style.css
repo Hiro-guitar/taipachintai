@@ -194,3 +194,4 @@ section{padding-block:72px}
 .legal ol{margin:0;padding-left:1.6em;display:grid;gap:4px}
 .legal .sign{margin-top:6px}
 .notfound{padding-block:80px;display:grid;gap:16px;justify-items:start}
+.nw{display:inline-block}
