@@ -2,9 +2,9 @@
 export const site = {
   name: "タイパ賃貸",
   origin: "https://taipachintai.com",
-  homeTitle: "タイパ賃貸｜内見なしで決める部屋探し。仲介手数料0円 or 3.3万円",
+  homeTitle: "タイパ賃貸｜内見に行けなくても決まる部屋探し。先に申し込めば仲介手数料0円 or 3.3万円",
   description:
-    "上京・遠方・忙しくて内見に行けない人のための、内見なし専門の賃貸仲介。SUUMOなどで見つけた部屋をLINEで送るだけ。案内に出ない分、仲介手数料は0円か3.3万円です。",
+    "上京・遠方・忙しくて内見に行けない人のための賃貸仲介。退去予定の部屋は先に申し込んで押さえ、空いている部屋はオンライン内見で確認。先に申し込めば仲介手数料は0円か3.3万円です。",
   line: "https://lin.ee/nbLxeOV",
   company: "合同会社えほうまき",
   license: "神奈川県知事（1）第32246号",
@@ -98,7 +98,7 @@ ${p.body}
   <div class="wrap foot-grid">
     <div>
       <p class="foot-logo">タイパ賃貸</p>
-      <p class="foot-tag">内見なしで決める部屋探し</p>
+      <p class="foot-tag">内見に行けなくても決まる部屋探し</p>
     </div>
     <dl class="foot-company">
       <div><dt>運営会社</dt><dd>${site.company}</dd></div>
