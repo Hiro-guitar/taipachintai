@@ -305,3 +305,21 @@ section{padding-block:72px}
 .movein{width:220px;height:auto}
 @media (max-width:700px){.final-grid{grid-template-columns:1fr}.movein{width:170px;justify-self:end;margin-top:-10px}}
 @media (max-width:820px){.hero-person{display:none}.fee-wrap{margin-top:28px}.route{max-width:320px;margin:0 auto 8px}}
+
+/* mobile polish */
+.btn-line{white-space:nowrap}
+.logo{min-height:44px}
+.foot-links a{display:inline-block;padding-block:10px}
+.more a{display:inline-block;padding-block:12px}
+.site-foot .copy{padding-bottom:8px}
+@media (max-width:820px){body{padding-bottom:100px}}
+@media (max-width:360px){
+  .wrap{padding-inline:16px}
+  .btn-line{font-size:15px;padding:13px 16px;gap:8px}
+  .btn-line .ico{width:20px;height:20px}
+  .hero h1{font-size:25px}
+  .hero .lead{font-size:16px}
+  .pains-answer{font-size:18px}
+  .sec-title{font-size:22px}
+  .fee-big .n{font-size:52px}
+}
