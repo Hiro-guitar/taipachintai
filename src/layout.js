@@ -2,7 +2,7 @@
 export const site = {
   name: "タイパ賃貸",
   origin: "https://taipachintai.com",
-  homeTitle: "上京・遠方からの東京のお部屋探し｜タイパ賃貸 内見に行けない人ほど得をする。仲介手数料0円 or 3.3万円",
+  homeTitle: "上京・遠方からの東京のお部屋探し｜タイパ賃貸（仲介手数料0円〜）",
   description:
     "上京・遠方から東京へ引っ越す人のための賃貸仲介。地元にいながら、ネットで見つけたお部屋をLINEで送るだけで申込から契約まで進められます。先に申し込めば仲介手数料は0円か3.3万円。",
   line: "https://lin.ee/nbLxeOV",
