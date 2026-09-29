@@ -280,3 +280,13 @@ section{padding-block:72px}
 .who-chips{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .who-chips li{background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:4px 14px;font-size:14px;font-weight:700}
 @media (max-width:420px){.hero h1{font-size:29px}}
+
+.cmp{display:grid;gap:10px}
+.cmp-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;border-radius:12px;background:#F4F6F5}
+.cmp-row.us{background:var(--sun-soft);border:2px solid var(--sea)}
+.cmp-who{font-weight:700;font-size:15px;color:var(--sub)}
+.cmp-row.us .cmp-who{color:var(--sea-deep)}
+.cmp-fee{font-family:var(--disp);font-weight:900;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap;color:#6B7477}
+.cmp-row.us .cmp-fee{color:var(--sea)}
+.cmp-fee span{font-size:15px;margin-left:1px}
+.cmp-fee em{font-style:normal;font-size:14px;color:var(--sub);margin:0 8px;font-family:var(--body);font-weight:700}
