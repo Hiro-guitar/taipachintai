@@ -18,7 +18,7 @@ route=f'''<svg class="route" viewBox="0 0 360 70" role="img" aria-label="地元�
   <path d="M40 46 C120 6, 230 6, 318 40" fill="none" stroke="{K}" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
   <g transform="translate(24 20)"><path d="M16 36s-12-11-12-20a12 12 0 0 1 24 0c0 9-12 20-12 20z" fill="{W}" {st}/><circle cx="16" cy="16" r="4.5" fill="{Y}" stroke="{K}" stroke-width="2.5"/></g>
   <text x="40" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="{K}">地元</text>
-  <g transform="translate(166 4) rotate(12)"><path d="M2 10 18 7l8-6h4l-4 8 8 1 3-3h3l-2 5 2 5h-3l-3-3-8 1 4 8h-4l-8-6-16-3z" fill="{W}" {st}/></g>
+  <g transform="translate(200 8) scale(-1 1) rotate(-6)"><path d="M2 10 18 7l8-6h4l-4 8 8 1 3-3h3l-2 5 2 5h-3l-3-3-8 1 4 8h-4l-8-6-16-3z" fill="{W}" {st}/></g>
   <g transform="translate(300 14)"><rect x="4" y="12" width="14" height="30" fill="{W}" {st}/><rect x="18" y="4" width="16" height="38" fill="{T}" {st}/><path d="M9 20h4M9 28h4M23 12h6M23 20h6M23 28h6" stroke="{K}" stroke-width="2" stroke-linecap="round"/></g>
   <text x="318" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="{K}">東京</text>
 </svg>'''
