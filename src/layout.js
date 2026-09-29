@@ -131,7 +131,7 @@ export function articleBody(a) {
   <article>
     <header class="article-head">
       <h1>${esc(a.title)}</h1>
-      <p class="meta">公開 ${esc(a.date)}${a.updated ? `　更新 ${esc(a.updated)}` : ""}　／　監修：宅地建物取引士</p>
+      <p class="meta">公開 ${esc(a.date)}${a.updated ? `　更新 ${esc(a.updated)}` : ""}</p>
     </header>
     <div class="prose">${a.html}</div>
   </article>
