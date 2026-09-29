@@ -290,3 +290,4 @@ section{padding-block:72px}
 .cmp-row.us .cmp-fee{color:var(--sea)}
 .cmp-fee span{font-size:15px;margin-left:1px}
 .cmp-fee em{font-style:normal;font-size:14px;color:var(--sub);margin:0 8px;font-family:var(--body);font-weight:700}
+.calc figcaption small{font-weight:400;font-size:13px;color:var(--sub);margin-left:4px}
