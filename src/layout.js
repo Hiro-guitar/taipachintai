@@ -107,8 +107,8 @@ ${p.body}
     </div>
     <dl class="foot-company">
       <div><dt>運営会社</dt><dd>${site.company}</dd></div>
-      <div><dt>免許番号</dt><dd>宅地建物取引業 ${site.license}</dd></div>
-      <div><dt>所在地</dt><dd>${site.address}</dd></div>
+      <div><dt>免許番号</dt><dd>宅地建物取引業 <span class="nw">${site.license}</span></dd></div>
+      <div><dt>所在地</dt><dd>${site.address.replace(/(和田.*)$/, '<span class="nw">$1</span>')}</dd></div>
       <div><dt>お問い合わせ</dt><dd>${site.email}</dd></div>
     </dl>
     <nav class="foot-links" aria-label="フッター">

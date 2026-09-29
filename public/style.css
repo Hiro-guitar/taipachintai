@@ -14,7 +14,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
 img{max-width:100%;height:auto}
 a{color:var(--sea)}
 a:focus-visible,summary:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:6px}
-h1,h2,h3{font-family:var(--disp);line-height:1.4;text-wrap:balance;word-break:auto-phrase;margin:0}
+h1,h2,h3{font-family:var(--disp);line-height:1.4;text-wrap:balance;margin:0}
 p{margin:0}
 .wrap{max-width:1080px;margin-inline:auto;padding-inline:20px}
 .num{font-variant-numeric:tabular-nums}
@@ -323,3 +323,9 @@ section{padding-block:72px}
   .sec-title{font-size:22px}
   .fee-big .n{font-size:52px}
 }
+
+/* line breaking */
+body{line-break:strict;word-break:keep-all;overflow-wrap:anywhere}
+p,li,dd,summary,figcaption{text-wrap:pretty}
+h1,h2,h3,summary,.pains-answer,.lead,.hero-note,.cmp-who{text-wrap:balance}
+.nw{display:inline-block}

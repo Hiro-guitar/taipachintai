@@ -9,7 +9,50 @@ const DIST = "dist";
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 
+// 文節ごとに折り返せるよう <wbr> を挿入する（ブラウザの対応差を吸収）。
+// 直前がひらがな/句読点で、直後がひらがな以外のとき、そこで改行を許可する。
+const HIRA = /[\u3041-\u309F]/;
+const PUNCT = /[、。，．！？）」』】]/;
+const OPEN = /[（「『【]/;
+const PART = /[をはがのにとへも]/;
+const SMALL = /[ゃゅょぁぃぅぇぉゎっー]/;
+const KANJI = /[\u4E00-\u9FFF]/;
+function phrase(text) {
+  let o = "";
+  const chars = [...text];
+  let run = 0; // 直前の改行許可位置からの文字数
+  for (let i = 0; i < chars.length; i++) {
+    const c = chars[i], n = chars[i + 1], n2 = chars[i + 2];
+    o += c; run++;
+    if (!n) continue;
+    if (/\s/.test(c) || /\s/.test(n)) { run = 0; continue; }
+    if (PUNCT.test(n) || SMALL.test(n)) continue;
+    let brk = false;
+    if (PUNCT.test(c)) brk = true;                                        // 読点・句点の後
+    else if (!HIRA.test(n)) {                                             // 次が漢字/カナ/英数
+      if (HIRA.test(c) && run >= (PART.test(c) ? 3 : 4)) brk = !(/[おご]/.test(c) && KANJI.test(n)); // お部屋・ご契約は分けない
+      else if (OPEN.test(n) && run >= 3) brk = true;
+    } else {                                                              // 次がひらがな
+      if ((n === "お" || n === "ご") && HIRA.test(c) && n2 && KANJI.test(n2) && run >= 2) brk = true; // 「の|お部屋」
+      else if (PART.test(c) && run >= 6 && n !== "う") brk = true;        // 長いときは助詞の後で切る
+      else if (run >= 11 && HIRA.test(c)) brk = true;                     // 最終手段
+    }
+    if (brk) { o += "<wbr>"; run = 0; }
+  }
+  return o;
+}
+function phraseBreak(html) {
+  const bs = html.indexOf("<body"), be = html.lastIndexOf("</body>");
+  if (bs < 0) return html;
+  let body = html.slice(bs, be);
+  // svg / script / style は触らない
+  const parts = body.split(/(<svg[\s\S]*?<\/svg>|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>)/);
+  body = parts.map((seg, i) => (i % 2 ? seg : seg.replace(/>([^<]+)</g, (m, t) => ">" + phrase(t) + "<"))).join("");
+  return html.slice(0, bs) + body + html.slice(be);
+}
+
 function out(path, html) {
+  html = phraseBreak(html);
   const file = join(DIST, path);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
