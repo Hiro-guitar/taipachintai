@@ -1,7 +1,7 @@
 :root{
   --sun:#F6D54A; --sun-soft:#FFF5CC; --sea:#0C7F89; --sea-deep:#075A62; --sea-soft:#E0F3F4;
   --ink:#1C2426; --sub:#5A6468; --paper:#FFFDF7; --card:#FFFFFF; --line:#EAE3CC;
-  --line-green:#06C755; --line-green-dark:#05A948;
+  --line-green:#06AB49; --line-green-dark:#05883A;
   --disp:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
   --body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
   --r:14px;
@@ -41,7 +41,7 @@ p{margin:0}
 
 /* shared */
 section{padding-block:72px}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--sea);margin-bottom:10px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--sea-deep);margin-bottom:10px}
 .sec-title{font-size:clamp(24px,3.6vw,32px);margin-bottom:32px}
 .small{font-size:14px;color:var(--sub);margin-top:14px}
 
@@ -270,7 +270,7 @@ section{padding-block:72px}
 .msg{max-width:82%;padding:9px 12px;border-radius:16px;font-size:13px;line-height:1.6;background:#FFFFFF;color:#1C2426}
 .msg.me{justify-self:end;background:#8DE055;border-bottom-right-radius:4px}
 .msg.you{justify-self:start;border-bottom-left-radius:4px}
-.msg .url{display:block;color:#0B5CAD;text-decoration:underline;font-size:12px;word-break:break-all}
+.msg .url{display:block;color:#08487F;text-decoration:underline;font-size:12px;word-break:break-all}
 .msg strong{color:var(--sea-deep)}
 @media (max-width:820px){.flow-grid{grid-template-columns:1fr;gap:32px}.phone{max-width:300px;justify-self:center}}
 
