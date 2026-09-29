@@ -42,7 +42,7 @@ function jsonLd(p) {
       description: p.article.description,
       datePublished: p.article.date,
       dateModified: p.article.updated || p.article.date,
-      author: { "@type": "Organization", name: site.name },
+      author: { "@type": "Organization", name: `${site.company}（宅地建物取引士）` },
       publisher: { "@type": "Organization", name: site.company },
       mainEntityOfPage: site.origin + p.url,
     });
@@ -54,8 +54,12 @@ function jsonLd(p) {
 export function layout(p) {
   const canonical = site.origin + p.url;
   // index.html の中に FAQ の構造化データを埋め込めるよう、本文から抽出
-  const faqMatch = p.body.match(/<!--FAQ_JSON([\s\S]*?)-->/);
-  if (faqMatch) p.faq = JSON.parse(faqMatch[1]);
+  const strip = (h) => h.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  const qa = [...p.body.matchAll(/<details>\s*<summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)];
+  if (qa.length) p.faq = {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: qa.map((m) => ({ "@type": "Question", name: strip(m[1]), acceptedAnswer: { "@type": "Answer", text: strip(m[2]) } })),
+  };
   return `<!doctype html>
 <html lang="ja">
 <head>
