@@ -327,5 +327,8 @@ section{padding-block:72px}
 /* line breaking */
 body{line-break:strict;word-break:keep-all;overflow-wrap:anywhere}
 p,li,dd,summary,figcaption{text-wrap:pretty}
+/* 長文は日本語の標準的な折り返しに戻す。文節単位で切ると、切れ目が大きすぎて
+   右端がガタつき、行末に不自然な空きが出るため。見出しやヒーローは keep-all のまま */
+.prose :is(p,li,dd,td),.faq-list p{word-break:normal;text-wrap:wrap}
 h1,h2,h3,summary,.pains-answer,.lead,.hero-note,.cmp-who{text-wrap:balance}
 .nw{display:inline-block}
