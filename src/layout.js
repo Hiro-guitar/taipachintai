@@ -138,7 +138,7 @@ export function articleBody(a) {
   <aside class="article-cta">
     <p class="cta-kicker">内見に行けないなら</p>
     <p class="cta-title">気になる部屋のURLを、LINEで送るだけ。</p>
-    <p>空室状況と初期費用の見積もりをお返しします。内見なしで申し込むなら、仲介手数料は0円か3.3万円です。</p>
+    <p>本当に空いているか、内見なしで申し込めるか、仲介手数料がいくらになるかをお返しします。内見なしで申し込むなら、仲介手数料は0円か3.3万円です。</p>
     ${lineButton()}
   </aside>
 </main>`;
