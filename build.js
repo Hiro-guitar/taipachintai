@@ -55,6 +55,11 @@ function phraseBreak(html) {
 
 function out(path, html) {
   html = phraseBreak(html);
+  // マークダウンの太字が閉じられていないと ** がそのままページに出る。
+  // 日本語では「できます。**」のように句読点の後ろに閉じ記号を置くと閉じられない。
+  // （CommonMark の right-flanking の規則。句点の前に移せば直る）
+  const stray = html.replace(/<(svg|script|style)[\s\S]*?<\/\1>/g, "").match(/\*\*[^*\n]{0,40}/);
+  if (stray) throw new Error(`${path}: 閉じられていない太字が残っています → ${stray[0]}`);
   const file = join(DIST, path);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
