@@ -1,0 +1,9 @@
+name = "taipachintai-line"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Secrets（値はここに書かない。wrangler secret put で設定する）
+#   LINE_CHANNEL_ACCESS_TOKEN
+#   LINE_CHANNEL_SECRET
+#   ADMIN_KEY

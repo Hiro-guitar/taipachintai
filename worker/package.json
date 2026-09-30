@@ -1,0 +1,9 @@
+{
+  "name": "taipachintai-line",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node validate.js",
+    "deploy": "wrangler deploy"
+  }
+}
