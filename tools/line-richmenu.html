@@ -2,6 +2,7 @@
 <style>
 @font-face{font-family:"Zen Maru Gothic";font-weight:900;font-style:normal;src:url("file:///tmp/claude-0/fonts/node_modules/@fontsource/zen-maru-gothic/files/zen-maru-gothic-japanese-900-normal.woff2") format("woff2");}
 @font-face{font-family:"Zen Maru Gothic";font-weight:700;font-style:normal;src:url("file:///tmp/claude-0/fonts/node_modules/@fontsource/zen-maru-gothic/files/zen-maru-gothic-japanese-700-normal.woff2") format("woff2");}
+@font-face{font-family:"Zen Maru Gothic";font-weight:900;font-style:normal;src:url("file:///tmp/claude-0/fonts/node_modules/@fontsource/zen-maru-gothic/files/zen-maru-gothic-latin-900-normal.woff2") format("woff2");unicode-range:U+0000-00FF;}
 @font-face{font-family:"Zen Maru Gothic";font-weight:700;font-style:normal;src:url("file:///tmp/claude-0/fonts/node_modules/@fontsource/zen-maru-gothic/files/zen-maru-gothic-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF;}
 @font-face{font-family:"Noto Sans JP";font-weight:700;font-style:normal;src:url("file:///tmp/claude-0/fonts/node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-700-normal.woff2") format("woff2");}
 @font-face{font-family:"Noto Sans JP";font-weight:500;font-style:normal;src:url("file:///tmp/claude-0/fonts/node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-500-normal.woff2") format("woff2");}
@@ -9,27 +10,69 @@
 
 *{box-sizing:border-box}
 body{margin:0;background:#fff}
-.menu{width:1250px;height:843px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);
+.menu{width:1250px;height:843px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:421px 1fr;
   gap:3px;background:#1C2426;font-family:"Noto Sans JP",sans-serif;color:#1C2426;overflow:hidden}
-.cell{background:#FFFDF7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative}
-.cell.main{background:#F6D54A}
-.ic{width:104px;height:104px;display:block}
-.lb{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:35px;line-height:1.25;text-align:center;letter-spacing:.01em}
-.cell.main .lb{font-weight:900;font-size:39px}
-.sb{font-size:20px;font-weight:700;color:#075A62;letter-spacing:.02em}
-.cell.main .sb{color:#1C2426;opacity:.72}
+
+/* ---- 主役（上・横長） ---- */
+.main{grid-column:1/4;background:#F6D54A;display:flex;align-items:center;justify-content:center;gap:52px;padding:0 56px;position:relative;overflow:hidden}
+.main .blob{position:absolute;right:-120px;top:-160px;width:420px;height:420px;border-radius:50%;background:#F9E27E}
+.art{width:286px;flex:none;position:relative;z-index:2}
+.copy{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:23px;font-weight:700;color:#075A62;letter-spacing:.04em}
+.hl{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:67px;line-height:1.2;margin:0;white-space:nowrap}
+.hl em{font-style:normal;background:linear-gradient(transparent 60%,#FFFFFF 60%);padding:0 4px}
+.tags{display:flex;gap:12px;margin-top:4px}
+.tag{background:#fff;border:3px solid #1C2426;border-radius:999px;padding:9px 22px;font-size:24px;font-weight:700;white-space:nowrap}
+.tag.free{background:#1C2426;color:#F6D54A}
+.tag b{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;color:#0C7F89}
+
+/* ---- 下段 ---- */
+.cell{background:#FFFDF7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.ic{width:116px;height:116px;display:block}
+.lb{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:42px;line-height:1.2;text-align:center}
+.sb{font-size:24px;font-weight:700;color:#075A62;letter-spacing:.02em}
 </style></head><body>
 <div class="menu">
 
-  <div class="cell main">
-    <svg class="ic" viewBox="0 0 48 48" aria-hidden="true">
-      <rect x="11" y="4" width="22" height="40" rx="5" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M19 38h6" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M17 13h12a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-6l-4 3v-3h-2a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z" fill="#06C755" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M30 32l12-5-5 12-2-5z" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
+  <div class="main">
+    <div class="blob"></div>
+    <svg class="art" viewBox="0 0 250 300" aria-hidden="true">
+      <!-- 端末 -->
+      <rect x="22" y="14" width="150" height="272" rx="20" fill="#FFFFFF" stroke="#1C2426" stroke-width="5"/>
+      <rect x="82" y="24" width="30" height="7" rx="3.5" fill="#1C2426"/>
+      <!-- 物件カード1（選択中） -->
+      <rect x="38" y="46" width="118" height="92" rx="10" fill="#FFFDF7" stroke="#1C2426" stroke-width="4"/>
+      <rect x="48" y="58" width="36" height="38" rx="3" fill="#0C7F89" stroke="#1C2426" stroke-width="3"/>
+      <g fill="#F6D54A"><rect x="53" y="63" width="8" height="7"/><rect x="65" y="63" width="8" height="7"/><rect x="53" y="76" width="8" height="7"/><rect x="65" y="76" width="8" height="7"/></g>
+      <path d="M92 62h54M92 72h40" stroke="#1C2426" stroke-width="3.4" stroke-linecap="round"/>
+      <rect x="48" y="104" width="98" height="24" rx="6" fill="#F6D54A" stroke="#1C2426" stroke-width="3.4"/>
+      <text x="97" y="121" text-anchor="middle" font-family="Zen Maru Gothic" font-weight="900" font-size="15" fill="#1C2426">手数料 0円</text>
+      <!-- 物件カード2・3（薄い） -->
+      <g opacity=".45">
+        <rect x="38" y="148" width="118" height="52" rx="10" fill="#FFFDF7" stroke="#1C2426" stroke-width="4"/>
+        <rect x="48" y="158" width="30" height="32" rx="3" fill="#C9D4D6" stroke="#1C2426" stroke-width="3"/>
+        <path d="M86 166h58M86 178h38" stroke="#1C2426" stroke-width="3.4" stroke-linecap="round"/>
+        <rect x="38" y="210" width="118" height="52" rx="10" fill="#FFFDF7" stroke="#1C2426" stroke-width="4"/>
+        <rect x="48" y="220" width="30" height="32" rx="3" fill="#C9D4D6" stroke="#1C2426" stroke-width="3"/>
+        <path d="M86 228h58M86 240h38" stroke="#1C2426" stroke-width="3.4" stroke-linecap="round"/>
+      </g>
+      <!-- 送信（紙ヒコーキ） -->
+      <path d="M172 132 C196 126, 210 118, 224 104" fill="none" stroke="#1C2426" stroke-width="4" stroke-dasharray="3 12" stroke-linecap="round"/>
+      <g transform="translate(186 44)">
+        <path d="M4 30 58 6 40 62 30 42z" fill="#FFFFFF" stroke="#1C2426" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M4 30 30 42 58 6" fill="none" stroke="#1C2426" stroke-width="4" stroke-linejoin="round"/>
+      </g>
     </svg>
-    <div class="lb">物件URLを送る</div>
-    <div class="sb">空室確認・見積もり無料</div>
+
+    <div class="copy">
+      <div class="eyebrow">気になるお部屋が見つかったら</div>
+      <p class="hl">その部屋の<em>URLを送るだけ</em>。</p>
+      <div class="tags">
+        <span class="tag">空室確認</span>
+        <span class="tag">初期費用の見積もり</span>
+        <span class="tag free">どちらも無料</span>
+      </div>
+    </div>
   </div>
 
   <div class="cell">
@@ -40,17 +83,17 @@ body{margin:0;background:#fff}
       <circle cx="35" cy="26.5" r="1.2" fill="#1C2426"/>
       <path d="M11 12l16-6 4 6" fill="#0C7F89" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
     </svg>
-    <div class="lb">料金を見る</div>
+    <div class="lb">仲介手数料</div>
     <div class="sb">0円 or 3.3万円</div>
   </div>
 
   <div class="cell">
     <svg class="ic" viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M11 15h26M11 24h26M11 33h18" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="11" cy="15" r="4.5" fill="#F6D54A" stroke="#1C2426" stroke-width="2.5"/>
-      <circle cx="11" cy="24" r="4.5" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5"/>
-      <circle cx="11" cy="33" r="4.5" fill="#0C7F89" stroke="#1C2426" stroke-width="2.5"/>
-      <path d="M33 29l5 4-5 4" fill="none" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13 14h25M13 24h25M13 34h17" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="11" cy="14" r="4.6" fill="#F6D54A" stroke="#1C2426" stroke-width="2.5"/>
+      <circle cx="11" cy="24" r="4.6" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5"/>
+      <circle cx="11" cy="34" r="4.6" fill="#0C7F89" stroke="#1C2426" stroke-width="2.5"/>
+      <path d="M34 30l5 4-5 4" fill="none" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <div class="lb">ご利用の流れ</div>
     <div class="sb">申込から契約まで</div>
@@ -58,34 +101,12 @@ body{margin:0;background:#fff}
 
   <div class="cell">
     <svg class="ic" viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M24 7c9.4 0 17 6.1 17 13.6S33.4 34.2 24 34.2c-1.5 0-3-.2-4.4-.5l-8.7 5 1.9-7.6C9 28.6 7 24.9 7 20.6 7 13.1 14.6 7 24 7z" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M20 17.5a4.2 4.2 0 1 1 5.6 4c-1.2.5-1.7 1.4-1.7 2.6" fill="none" stroke="#1C2426" stroke-width="2.6" stroke-linecap="round"/>
-      <circle cx="23.9" cy="28.3" r="1.7" fill="#0C7F89"/>
+      <path d="M24 8c9.4 0 17 6 17 13.4S33.4 34.8 24 34.8c-1.5 0-3-.2-4.4-.5l-8.7 5 1.9-7.6C9 29.2 7 25.6 7 21.4 7 14 14.6 8 24 8z" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M20 18.2a4.2 4.2 0 1 1 5.6 4c-1.2.5-1.7 1.4-1.7 2.6" fill="none" stroke="#1C2426" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="23.9" cy="29" r="1.8" fill="#0C7F89"/>
     </svg>
     <div class="lb">よくある質問</div>
-    <div class="sb">内見なしって大丈夫？</div>
-  </div>
-
-  <div class="cell">
-    <svg class="ic" viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M7 10c5-2.5 10-2.5 15 1v28c-5-3.5-10-3.5-15-1z" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M41 10c-5-2.5-10-2.5-15 1v28c5-3.5 10-3.5 15-1z" fill="#F6D54A" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M11 17c3-1 6-1 8 .4M11 24c3-1 6-1 8 .4M30 17c3-1 6-1 8 .4" stroke="#1C2426" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-      <path d="M24 11v28" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round"/>
-    </svg>
-    <div class="lb">お部屋探しガイド</div>
-    <div class="sb">失敗しないコツ</div>
-  </div>
-
-  <div class="cell">
-    <svg class="ic" viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M6 13l11-4 14 4 11-4v26l-11 4-14-4-11 4z" fill="#FFFFFF" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M17 9v26M31 13v26" stroke="#1C2426" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M35 34s-7-7-7-12a7 7 0 0 1 14 0c0 5-7 12-7 12z" fill="#0C7F89" stroke="#1C2426" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="35" cy="21.5" r="2.6" fill="#FFFFFF"/>
-    </svg>
-    <div class="lb">対応エリア</div>
-    <div class="sb">東京・神奈川・埼玉・千葉</div>
+    <div class="sb">エリア・内見・審査</div>
   </div>
 
 </div>
