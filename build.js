@@ -46,8 +46,9 @@ function phraseBreak(html) {
   const bs = html.indexOf("<body"), be = html.lastIndexOf("</body>");
   if (bs < 0) return html;
   let body = html.slice(bs, be);
-  // svg / script / style は触らない
-  const parts = body.split(/(<svg[\s\S]*?<\/svg>|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>)/);
+  // svg / script / style と、LINEボタンのラベルは触らない
+  // （ボタンは white-space:nowrap だが、<wbr> があると Chromium がそこで折り返す）
+  const parts = body.split(/(<a class="btn-line"[\s\S]*?<\/a>|<svg[\s\S]*?<\/svg>|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>)/);
   body = parts.map((seg, i) => (i % 2 ? seg : seg.replace(/>([^<]+)</g, (m, t) => ">" + phrase(t) + "<"))).join("");
   return html.slice(0, bs) + body + html.slice(be);
 }
