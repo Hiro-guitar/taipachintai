@@ -42,7 +42,7 @@ function jsonLd(p) {
       description: p.article.description,
       datePublished: p.article.date,
       dateModified: p.article.updated || p.article.date,
-      author: { "@type": "Organization", name: `${site.company}（宅地建物取引士）` },
+      author: { "@type": "Organization", name: site.company },
       publisher: { "@type": "Organization", name: site.company },
       mainEntityOfPage: site.origin + p.url,
     });
