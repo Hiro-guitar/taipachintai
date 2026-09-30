@@ -33,9 +33,10 @@ function phrase(text) {
       if (HIRA.test(c) && run >= (PART.test(c) ? 3 : 4)) brk = !(/[おご]/.test(c) && KANJI.test(n)); // お部屋・ご契約は分けない
       else if (OPEN.test(n) && run >= 3) brk = true;
     } else {                                                              // 次がひらがな
+      // 助詞の後でも、次がひらがなのときは切らない。
+      // 「伝わりに|くい」「として」のように語の途中で切れてしまうため。
+      // 行が収まらないときは CSS の overflow-wrap:anywhere が受け持つ。
       if ((n === "お" || n === "ご") && HIRA.test(c) && n2 && KANJI.test(n2) && run >= 2) brk = true; // 「の|お部屋」
-      else if (PART.test(c) && run >= 6 && n !== "う") brk = true;        // 長いときは助詞の後で切る
-      else if (run >= 11 && HIRA.test(c)) brk = true;                     // 最終手段
     }
     if (brk) { o += "<wbr>"; run = 0; }
   }
