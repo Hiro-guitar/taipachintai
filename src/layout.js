@@ -136,7 +136,6 @@ export function articleBody(a) {
     <div class="prose">${a.html}</div>
   </article>
   <aside class="article-cta">
-    <p class="cta-kicker">内見に行けないなら</p>
     <p class="cta-title">気になる部屋のURLを、LINEで送るだけ。</p>
     <p>本当に空いているか、内見なしで申し込めるか、仲介手数料がいくらになるかをお調べしてご連絡します。内見なしで申し込むなら、仲介手数料は0円か3.3万円です。</p>
     ${lineButton()}
