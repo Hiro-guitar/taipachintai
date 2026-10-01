@@ -114,8 +114,9 @@ function report(file) {
     if (m) note(`${msg}  [${[...new Set(m)].join("／")}  ${m.length}件]`);
   }
 
-  // --- 漢字比率 ---
-  const ja = [...body].filter((c) => JA.test(c));
+  // --- 漢字比率（見出し・箇条書き・表は数えない。項目名は専門用語そのもので、
+  //     ひらがなにしようがないため。地の文の読みやすさだけを見る） ---
+  const ja = [...paras.join("\n")].filter((c) => JA.test(c));
   const kanjiRate = ja.filter((c) => KANJI.test(c)).length / (ja.length || 1);
   if (kanjiRate > 0.35) note(`漢字比率 ${(kanjiRate * 100).toFixed(0)}%（35%まで。ひらがなを増やす）`);
 
@@ -129,7 +130,7 @@ function report(file) {
   const h2 = (body.match(/^## /gm) || []).length;
   if (h2 && boldN > h2) note(`文中の太字が多い（${boldN}箇所／h2が${h2}個。1セクション1箇所が目安）`);
 
-  return { file, warn, stats: { 文数: sentences.length, 平均字数: avg.toFixed(0), 短文率: `${(shortRate * 100).toFixed(0)}%`, 漢字率: `${(kanjiRate * 100).toFixed(0)}%`, 見出しh2: h2, 太字: boldN } };
+  return { file, warn, stats: { 文数: sentences.length, 平均字数: avg.toFixed(0), 短文率: `${(shortRate * 100).toFixed(0)}%`, 本文漢字率: `${(kanjiRate * 100).toFixed(0)}%`, 見出しh2: h2, 太字: boldN } };
 }
 
 let total = 0;
