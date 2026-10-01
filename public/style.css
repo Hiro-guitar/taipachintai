@@ -242,6 +242,30 @@ section{padding-block:72px}
 .prose th,.prose td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
 .prose th{background:var(--sea-soft)}
 .prose strong{background:linear-gradient(transparent 60%, var(--sun-soft) 60%)}
+
+/* 目次（h2だけを並べる。記事の冒頭、リード文の直後に入る） */
+.toc{background:var(--sea-soft);border-radius:var(--r);padding:20px 22px;margin:4px 0}
+.toc-title{font-family:var(--disp);font-weight:900;font-size:17px;margin:0 0 10px}
+.toc ol{margin:0;padding-left:1.3em;display:grid;gap:8px;font-size:15px;line-height:1.6}
+.toc a{color:var(--sea-deep);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.prose h2{scroll-margin-top:16px}
+
+/* 手順の図。番号と矢印で流れを見せる */
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.flow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px 14px 56px;font-size:15px;line-height:1.7}
+.flow li::before{content:counter(flow);counter-increment:flow;position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--sea);color:#fff;font-family:var(--disp);font-weight:900;font-size:15px;display:grid;place-items:center}
+.flow{counter-reset:flow}
+.flow li+li{margin-top:30px}
+.flow li+li::after{content:"";position:absolute;left:22px;top:-28px;width:14px;height:26px;background:var(--sea);clip-path:polygon(40% 0,60% 0,60% 60%,100% 60%,50% 100%,0 60%,40% 60%)}
+.flow b{font-family:var(--disp);font-weight:900}
+
+/* 計算式を1行で見せる箱 */
+.formula{background:var(--sun-soft);border:1px solid var(--sun);border-radius:var(--r);padding:18px 20px;text-align:center;font-family:var(--disp);font-weight:900;font-size:clamp(16px,2.6vw,20px);line-height:1.8;margin:0}
+.formula em{font-style:normal;color:var(--sea-deep);font-size:1.3em}
+
+/* 表の合計行 */
+.prose tr.total td,.prose tr.total th{background:var(--sun-soft);font-weight:700}
 .article-cta{margin-top:48px;padding:28px;border-radius:var(--r);background:var(--sun);display:grid;gap:12px;justify-items:start}
 .cta-title{font-family:var(--disp);font-weight:900;font-size:clamp(20px,3vw,26px)}
 .cta-fee{font-size:17px;line-height:1.7;margin:0}

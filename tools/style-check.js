@@ -40,6 +40,8 @@ function stripMd(s) {
   return s
     .replace(/^---\n[\s\S]*?\n---\n/, "")       // frontmatter
     .replace(/```[\s\S]*?```/g, "")
+    .replace(/^<(table|ol|ul|p|div|figure)[\s\S]*?<\/\1>\s*$/gm, "")  // 生のHTMLブロックは文体の対象外
+    .replace(/<[^>]+>/g, "")
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")     // リンクはテキストだけ残す
     .replace(/`([^`]*)`/g, "$1");
 }
@@ -68,8 +70,10 @@ function report(file) {
     .filter((p) => p && !/^#{1,6}\s/.test(p) && !/^[-*|>]/.test(p) && !/^\d+\./.test(p));
 
   const sentences = [];
+  const paraSents = []; // 段落ごとの文（文末の連続は段落内だけで見る）
   for (const p of paras) {
     const ss = p.replace(/\n/g, "").split(/(?<=。)/).filter((s) => s.trim());
+    paraSents.push(ss);
     if (ss.length > 4) note(`段落が${ss.length}文ある（4文まで）: ${ss[0].slice(0, 28)}…`);
     sentences.push(...ss);
     // 長めの段落に数値も固有名詞らしきカタカナもないと、具体性が薄い
@@ -88,16 +92,15 @@ function report(file) {
   // 短い文が多すぎると媒体の落ち着きがなくなり、個人ブログの調子になる
   if (shortRate > 0.15) note(`短い文（20字以下）が${(shortRate * 100).toFixed(0)}%（1割まで。文を刻まない）`);
 
-  // --- 文末の単調さ ---
-  const tail = sentences.map((s) => {
-    const t = s.trim().replace(/。$/, "");
-    return t.slice(-3);
-  });
-  let runLen = 1;
-  for (let i = 1; i < tail.length; i++) {
-    if (tail[i] && tail[i] === tail[i - 1]) {
-      if (++runLen === 3) note(`同じ文末が3連続: 「…${tail[i]}。」`);
-    } else runLen = 1;
+  // --- 文末の単調さ（段落をまたいだ連続は、間に見出しが入るので数えない） ---
+  for (const ss of paraSents) {
+    const tail = ss.map((x) => x.trim().replace(/。$/, "").slice(-3));
+    let runLen = 1;
+    for (let i = 1; i < tail.length; i++) {
+      if (tail[i] && tail[i] === tail[i - 1]) {
+        if (++runLen === 3) note(`同じ文末が3連続: 「…${tail[i]}。」`);
+      } else runLen = 1;
+    }
   }
 
   const h2 = (body.match(/^## /gm) || []).length;

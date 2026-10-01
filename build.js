@@ -78,6 +78,25 @@ function parseFrontmatter(src) {
   return { data, body: m[2] };
 }
 
+// h2 に id を振り、目次を組み立てて、リード文の直後に差し込む。
+// 「まとめ」は目次に載せない（大手媒体の記事もそうしている）。
+function withToc(html) {
+  const items = [];
+  let n = 0;
+  html = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (m, inner) => {
+    const id = `s${++n}`;
+    const text = inner.replace(/<[^>]+>/g, "").trim();
+    if (!/^まとめ/.test(text)) items.push({ id, text });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+  if (items.length < 3) return html;
+  const toc = `<nav class="toc" aria-label="目次"><p class="toc-title">目次</p><ol>${items
+    .map((x) => `<li><a href="#${x.id}">${x.text}</a></li>`)
+    .join("")}</ol></nav>`;
+  const at = html.indexOf("<h2 ");
+  return at < 0 ? html : html.slice(0, at) + toc + html.slice(at);
+}
+
 const articleDir = "content/articles";
 const articles = readdirSync(articleDir)
   .filter((f) => f.endsWith(".md"))
@@ -85,7 +104,7 @@ const articles = readdirSync(articleDir)
     const { data, body } = parseFrontmatter(readFileSync(join(articleDir, f), "utf8"));
     const slug = data.slug || f.replace(/\.md$/, "");
     if (data.draft === "true") return null;
-    return { ...data, slug, html: marked.parse(body), url: `/articles/${slug}/` };
+    return { ...data, slug, html: withToc(marked.parse(body)), url: `/articles/${slug}/` };
   })
   .filter(Boolean)
   .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
