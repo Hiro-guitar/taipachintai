@@ -73,8 +73,8 @@ function report(file) {
     if (ss.length > 4) note(`段落が${ss.length}文ある（4文まで）: ${ss[0].slice(0, 28)}…`);
     sentences.push(...ss);
     // 長めの段落に数値も固有名詞らしきカタカナもないと、具体性が薄い
-    if (ss.length >= 3 && !/[0-9０-９]/.test(p) && !/[ァ-ヺ]{3,}/.test(p))
-      note(`3文以上あるのに数値も固有名詞もない段落: ${p.slice(0, 28)}…`);
+    if (ss.length >= 4 && !/[0-9０-９]/.test(p) && !/[ァ-ヺ]{3,}/.test(p))
+      note(`4文あるのに数値も固有名詞もない段落: ${p.slice(0, 28)}…`);
   }
 
   // --- 一文の長さ ---
@@ -84,8 +84,9 @@ function report(file) {
   const shortRate = lens.filter((n) => n <= 20).length / (lens.length || 1);
 
   for (const s of longs) note(`一文が長い（${[...s].length}字）: ${s.slice(0, 32)}…`);
-  if (avg < 30 || avg > 50) note(`一文の平均が${avg.toFixed(0)}字（目安35〜50字）`);
-  if (shortRate < 0.1) note(`短い文（20字以下）が${(shortRate * 100).toFixed(0)}%（1割以上ほしい）`);
+  if (avg < 33 || avg > 50) note(`一文の平均が${avg.toFixed(0)}字（目安35〜45字）`);
+  // 短い文が多すぎると媒体の落ち着きがなくなり、個人ブログの調子になる
+  if (shortRate > 0.15) note(`短い文（20字以下）が${(shortRate * 100).toFixed(0)}%（1割まで。文を刻まない）`);
 
   // --- 文末の単調さ ---
   const tail = sentences.map((s) => {
@@ -99,6 +100,8 @@ function report(file) {
     } else runLen = 1;
   }
 
+  const h2 = (body.match(/^## /gm) || []).length;
+
   // --- 文頭の順接接続詞 ---
   const hits = {};
   for (const s of sentences) {
@@ -106,7 +109,8 @@ function report(file) {
     for (const c of CONJ) if (head.startsWith(c)) hits[c] = (hits[c] || 0) + 1;
   }
   const conjTotal = Object.values(hits).reduce((a, b) => a + b, 0);
-  if (conjTotal) note(`文頭の順接接続詞 ${conjTotal}個（原則すべて削る）: ${Object.entries(hits).map(([k, v]) => `${k}×${v}`).join(" ")}`);
+  // 全部削るのではなく、多すぎるときだけ知らせる（h2 1個につき1個が目安）
+  if (h2 && conjTotal > h2) note(`文頭の順接接続詞が多い ${conjTotal}個／h2が${h2}個: ${Object.entries(hits).map(([k, v]) => `${k}×${v}`).join(" ")}`);
 
   // --- 禁止表現 ---
   for (const [re, msg] of NG) {
@@ -118,7 +122,7 @@ function report(file) {
   //     ひらがなにしようがないため。地の文の読みやすさだけを見る） ---
   const ja = [...paras.join("\n")].filter((c) => JA.test(c));
   const kanjiRate = ja.filter((c) => KANJI.test(c)).length / (ja.length || 1);
-  if (kanjiRate > 0.35) note(`漢字比率 ${(kanjiRate * 100).toFixed(0)}%（35%まで。ひらがなを増やす）`);
+  if (kanjiRate > 0.38) note(`漢字比率 ${(kanjiRate * 100).toFixed(0)}%（38%まで。ひらがなを増やす）`);
 
   // --- 太字（箇条書きの項目名「- **〇〇**：」は数えない） ---
   const bold = body
@@ -127,7 +131,6 @@ function report(file) {
     .join("\n")
     .match(/\*\*/g);
   const boldN = (bold || []).length / 2;
-  const h2 = (body.match(/^## /gm) || []).length;
   if (h2 && boldN > h2) note(`文中の太字が多い（${boldN}箇所／h2が${h2}個。1セクション1箇所が目安）`);
 
   return { file, warn, stats: { 文数: sentences.length, 平均字数: avg.toFixed(0), 短文率: `${(shortRate * 100).toFixed(0)}%`, 本文漢字率: `${(kanjiRate * 100).toFixed(0)}%`, 見出しh2: h2, 太字: boldN } };
