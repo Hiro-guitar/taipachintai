@@ -275,6 +275,7 @@ section{padding-block:72px}
 .article-cta{margin-top:48px;padding:28px;border-radius:var(--r);background:var(--sun);display:grid;gap:12px;justify-items:start}
 .cta-title{font-family:var(--disp);font-weight:900;font-size:clamp(20px,3vw,26px)}
 .cta-fee{font-size:17px;line-height:1.7;margin:0}
+.cta-note{font-size:14.5px;line-height:1.7;margin:-6px 0 0;color:#3E4A4D}
 .cta-fee b{font-family:var(--disp);font-weight:900;font-size:1.35em;color:var(--sea-deep)}
 .article-index{padding-block:40px 72px;display:grid;gap:18px}
 .article-index h1{font-size:clamp(26px,4vw,34px)}

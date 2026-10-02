@@ -139,6 +139,7 @@ export function articleBody(a) {
   <aside class="article-cta">
     <p class="cta-title">気になる部屋のURLを、LINEで送るだけ。</p>
     <p class="cta-fee">内見に行かずに申し込めば、仲介手数料は<b>0円</b>または<b>3.3万円</b>。</p>
+    <p class="cta-note">申込のあとに内見する「先行申込」でも、同じ金額です。</p>
     ${lineButton()}
   </aside>
 </main>`;
