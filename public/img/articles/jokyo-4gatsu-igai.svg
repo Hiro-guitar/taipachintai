@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="年間カレンダーの4月以外の月に印がつき、引越しの荷物が置かれているイラスト">
+  <rect width="1200" height="630" fill="#FFF5CC"/>
+  <circle cx="1090" cy="120" r="118" fill="#F6D54A" opacity=".55"/>
+  <circle cx="80" cy="540" r="80" fill="#0C7F89" opacity=".14"/>
+
+  <g stroke="#1C2426" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+    <!-- 年間カレンダー -->
+    <rect x="120" y="120" width="512" height="400" rx="22" fill="#FFFFFF" stroke-width="8"/>
+    <path d="M120 142a22 22 0 0 1 22-22h468a22 22 0 0 1 22 22v58H120z" fill="#0C7F89" stroke="none"/>
+    <path d="M120 200h512" stroke-width="8"/>
+
+    <!-- 12ヶ月のマス（4×3） -->
+    <g>
+      <rect x="156" y="232" width="100" height="62" rx="10" fill="#EAE3CC" stroke-width="5"/>
+      <rect x="276" y="232" width="100" height="62" rx="10" fill="#EAE3CC" stroke-width="5"/>
+      <rect x="396" y="232" width="100" height="62" rx="10" fill="#EAE3CC" stroke-width="5"/>
+      <rect x="516" y="232" width="80" height="62" rx="10" fill="#FFFDF7" stroke-width="5"/>
+
+      <rect x="156" y="316" width="100" height="62" rx="10" fill="#F6D54A" stroke-width="5"/>
+      <rect x="276" y="316" width="100" height="62" rx="10" fill="#FFFDF7" stroke-width="5"/>
+      <rect x="396" y="316" width="100" height="62" rx="10" fill="#F6D54A" stroke-width="5"/>
+      <rect x="516" y="316" width="80" height="62" rx="10" fill="#FFFDF7" stroke-width="5"/>
+
+      <rect x="156" y="400" width="100" height="62" rx="10" fill="#FFFDF7" stroke-width="5"/>
+      <rect x="276" y="400" width="100" height="62" rx="10" fill="#F6D54A" stroke-width="5"/>
+      <rect x="396" y="400" width="100" height="62" rx="10" fill="#FFFDF7" stroke-width="5"/>
+      <rect x="516" y="400" width="80" height="62" rx="10" fill="#EAE3CC" stroke-width="5"/>
+    </g>
+    <!-- 春の繁忙期には斜線 -->
+    <path d="M176 248l60 30M176 278l60-30" stroke="#1C2426" stroke-width="4" opacity=".45"/>
+    <path d="M296 248l60 30M296 278l60-30" stroke="#1C2426" stroke-width="4" opacity=".45"/>
+    <path d="M416 248l60 30M416 278l60-30" stroke="#1C2426" stroke-width="4" opacity=".45"/>
+
+    <!-- ダンボール箱（大） -->
+    <path d="M700 352h236v172H700z" fill="#FFFFFF" stroke-width="8"/>
+    <path d="M700 352l44-54h148l44 54" stroke-width="8" fill="#FFFDF7"/>
+    <path d="M818 298v226" stroke-width="7"/>
+    <rect x="762" y="396" width="112" height="30" rx="8" fill="#F6D54A" stroke-width="6"/>
+
+    <!-- ダンボール箱（小） -->
+    <path d="M944 428h152v96H944z" fill="#FFFFFF" stroke-width="8"/>
+    <path d="M944 428l28-36h96l28 36" stroke-width="8" fill="#FFFDF7"/>
+    <path d="M1020 392v132" stroke-width="7"/>
+
+    <!-- 装飾 -->
+    <path d="M676 176v30M661 191h30" stroke="#F6D54A" stroke-width="10"/>
+    <path d="M1136 300v24M1124 312h24" stroke="#0C7F89" stroke-width="9"/>
+  </g>
+</svg>
