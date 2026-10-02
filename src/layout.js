@@ -75,7 +75,7 @@ ${p.noindex ? '<meta name="robots" content="noindex">' : ""}
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="${site.name}">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="${site.origin}/og.png">
+<meta property="og:image" content="${site.origin}${p.article?.ogImage || "/og.png"}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F6D54A">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -133,6 +133,7 @@ export function articleBody(a) {
       <h1>${esc(a.title)}</h1>
       <p class="meta">公開 ${esc(a.date)}${a.updated ? `　更新 ${esc(a.updated)}` : ""}</p>
     </header>
+    ${a.image ? `<figure class="eyecatch"><img src="${a.image}" alt="" width="1200" height="630" fetchpriority="high"></figure>` : ""}
     <div class="prose">${a.html}</div>
   </article>
   <aside class="article-cta">
@@ -147,7 +148,7 @@ export function articleIndexBody(list, compact) {
   if (!list.length) return "";
   return `<ul class="article-list${compact ? " compact" : ""}">${list
     .map(
-      (a) => `<li><a href="${a.url}"><span class="al-title">${esc(a.title)}</span><span class="al-desc">${esc(a.description)}</span></a></li>`
+      (a) => `<li><a href="${a.url}">${a.image ? `<img class="al-thumb" src="${a.image}" alt="" width="1200" height="630" loading="lazy">` : ""}<span class="al-body"><span class="al-title">${esc(a.title)}</span><span class="al-desc">${esc(a.description)}</span></span></a></li>`
     )
     .join("")}</ul>`;
 }

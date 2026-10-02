@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="スマートフォンの物件ページと間取り図を虫めがねで確認しているイラスト">
+  <rect width="1200" height="630" fill="#FFF5CC"/>
+  <circle cx="1070" cy="105" r="130" fill="#F6D54A" opacity=".55"/>
+  <circle cx="92" cy="560" r="86" fill="#0C7F89" opacity=".14"/>
+
+  <g stroke="#1C2426" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+    <!-- 間取り図 -->
+    <g transform="rotate(-5 800 330)">
+      <rect x="548" y="136" width="500" height="388" rx="18" fill="#FFFFFF" stroke-width="7"/>
+      <rect x="592" y="186" width="412" height="292" fill="#FFFDF7" stroke-width="7"/>
+      <path d="M798 186v292M592 338h206" stroke-width="7"/>
+      <path d="M798 268h0" stroke-width="7"/>
+      <!-- 窓 -->
+      <path d="M660 186h120M880 186h86" stroke="#0C7F89" stroke-width="10"/>
+      <!-- ドアの開き -->
+      <path d="M798 408a56 56 0 0 1-56-56" stroke-width="5"/>
+      <path d="M742 352h56" stroke-width="5"/>
+      <!-- 部屋名のバー -->
+      <rect x="628" y="232" width="104" height="18" rx="9" fill="#EAE3CC" stroke="none"/>
+      <rect x="628" y="382" width="78" height="18" rx="9" fill="#EAE3CC" stroke="none"/>
+      <rect x="840" y="232" width="92" height="18" rx="9" fill="#EAE3CC" stroke="none"/>
+      <!-- バルコニー -->
+      <path d="M592 478h412" stroke-width="7"/>
+      <path d="M612 478v26h372v-26" stroke-width="6" stroke-dasharray="14 12"/>
+    </g>
+
+    <!-- スマートフォン -->
+    <rect x="140" y="78" width="306" height="476" rx="42" fill="#FFFFFF" stroke-width="7"/>
+    <rect x="170" y="130" width="246" height="368" rx="14" fill="#FFFFFF" stroke-width="6"/>
+    <path d="M170 144a14 14 0 0 1 14-14h218a14 14 0 0 1 14 14v36H170z" fill="#0C7F89" stroke="none"/>
+    <path d="M170 180h246" stroke-width="6"/>
+    <!-- 画面のなかの部屋 -->
+    <rect x="198" y="212" width="190" height="124" fill="#E0F3F4" stroke-width="6"/>
+    <rect x="236" y="240" width="70" height="62" fill="#FFFFFF" stroke-width="6"/>
+    <path d="M271 240v62M236 271h70" stroke-width="5"/>
+    <path d="M336 336v-34h32v34" stroke-width="6" fill="#F6D54A"/>
+    <!-- 募集ページの文字 -->
+    <rect x="198" y="362" width="190" height="16" rx="8" fill="#EAE3CC" stroke="none"/>
+    <rect x="198" y="396" width="148" height="16" rx="8" fill="#EAE3CC" stroke="none"/>
+    <rect x="198" y="430" width="104" height="16" rx="8" fill="#EAE3CC" stroke="none"/>
+    <rect x="252" y="512" width="82" height="9" rx="5" fill="#1C2426" stroke="none"/>
+
+    <!-- 虫めがね -->
+    <circle cx="904" cy="436" r="92" fill="#FFFDF7" fill-opacity=".94" stroke-width="11"/>
+    <path d="M970 502l62 62" stroke-width="20"/>
+    <path d="M868 436l26 28 50-58" stroke="#0C7F89" stroke-width="15"/>
+
+    <!-- 装飾 -->
+    <path d="M498 128v30M483 143h30" stroke="#F6D54A" stroke-width="10"/>
+    <path d="M1118 300v24M1106 312h24" stroke="#0C7F89" stroke-width="9"/>
+  </g>
+</svg>

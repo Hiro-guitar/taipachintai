@@ -104,7 +104,9 @@ const articles = readdirSync(articleDir)
     const { data, body } = parseFrontmatter(readFileSync(join(articleDir, f), "utf8"));
     const slug = data.slug || f.replace(/\.md$/, "");
     if (data.draft === "true") return null;
-    return { ...data, slug, html: withToc(marked.parse(body)), url: `/articles/${slug}/` };
+    const image = existsSync(`public/img/articles/${slug}.svg`) ? `/img/articles/${slug}.svg` : null;
+    const ogImage = existsSync(`public/img/articles/${slug}.png`) ? `/img/articles/${slug}.png` : null;
+    return { ...data, slug, image, ogImage, html: withToc(marked.parse(body)), url: `/articles/${slug}/` };
   })
   .filter(Boolean)
   .sort((a, b) => (b.date || "").localeCompare(a.date || ""));

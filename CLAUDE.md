@@ -22,6 +22,7 @@ npm run style -- content/articles/xxx.md   # 1記事だけ
 ```
 content/articles/*.md   記事（frontmatter + 本文）
 content/STYLE.md        文体ガイド
+public/img/articles/    記事のアイキャッチ（<slug>.svg と、OGP用の <slug>.png）
 src/pages/*.html        固定ページ
 src/layout.js           共通レイアウト、記事下のCTA、JSON-LD
 public/                 style.css と静的ファイル。そのまま dist/ にコピーされる
