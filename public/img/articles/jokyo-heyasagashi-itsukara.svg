@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="カレンダーに入居日の印をつけ、スーツケースで上京する準備をしているイラスト">
+  <rect width="1200" height="630" fill="#FFF5CC"/>
+  <circle cx="1080" cy="520" r="140" fill="#F6D54A" opacity=".55"/>
+  <circle cx="96" cy="96" r="78" fill="#0C7F89" opacity=".14"/>
+
+  <g stroke="#1C2426" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+    <!-- 建物 -->
+    <g opacity=".9">
+      <rect x="830" y="92" width="150" height="214" rx="12" fill="#FFFFFF" stroke-width="7"/>
+      <rect x="862" y="128" width="40" height="36" fill="#E0F3F4" stroke-width="5"/>
+      <rect x="914" y="128" width="40" height="36" fill="#E0F3F4" stroke-width="5"/>
+      <rect x="862" y="186" width="40" height="36" fill="#E0F3F4" stroke-width="5"/>
+      <rect x="914" y="186" width="40" height="36" fill="#F6D54A" stroke-width="5"/>
+      <rect x="884" y="248" width="44" height="58" fill="#0C7F89" stroke-width="6"/>
+    </g>
+
+    <!-- カレンダー -->
+    <rect x="128" y="128" width="470" height="400" rx="22" fill="#FFFFFF" stroke-width="8"/>
+    <path d="M128 150a22 22 0 0 1 22-22h426a22 22 0 0 1 22 22v72H128z" fill="#0C7F89" stroke="none"/>
+    <path d="M128 222h470" stroke-width="8"/>
+    <path d="M214 92v62M512 92v62" stroke-width="14"/>
+
+    <!-- 日付のマス -->
+    <g fill="#EAE3CC" stroke="none">
+      <rect x="170" y="258" width="48" height="36" rx="8"/><rect x="236" y="258" width="48" height="36" rx="8"/>
+      <rect x="302" y="258" width="48" height="36" rx="8"/><rect x="368" y="258" width="48" height="36" rx="8"/>
+      <rect x="434" y="258" width="48" height="36" rx="8"/><rect x="500" y="258" width="48" height="36" rx="8"/>
+      <rect x="170" y="310" width="48" height="36" rx="8"/><rect x="236" y="310" width="48" height="36" rx="8"/>
+      <rect x="302" y="310" width="48" height="36" rx="8"/><rect x="434" y="310" width="48" height="36" rx="8"/>
+      <rect x="500" y="310" width="48" height="36" rx="8"/>
+      <rect x="170" y="362" width="48" height="36" rx="8"/><rect x="236" y="362" width="48" height="36" rx="8"/>
+      <rect x="302" y="362" width="48" height="36" rx="8"/><rect x="368" y="362" width="48" height="36" rx="8"/>
+      <rect x="434" y="362" width="48" height="36" rx="8"/><rect x="500" y="362" width="48" height="36" rx="8"/>
+      <rect x="170" y="414" width="48" height="36" rx="8"/><rect x="236" y="414" width="48" height="36" rx="8"/>
+      <rect x="302" y="414" width="48" height="36" rx="8"/><rect x="368" y="414" width="48" height="36" rx="8"/>
+    </g>
+    <!-- 入居日の印 -->
+    <circle cx="392" cy="328" r="32" fill="#FFFDF7" stroke="#E4553B" stroke-width="9"/>
+    <path d="M376 328l12 13 22-26" stroke="#E4553B" stroke-width="9"/>
+
+    <!-- スーツケース -->
+    <path d="M722 392v-30a16 16 0 0 1 16-16h66a16 16 0 0 1 16 16v30" stroke-width="9"/>
+    <rect x="664" y="392" width="248" height="166" rx="22" fill="#0C7F89" stroke-width="9"/>
+    <path d="M734 392v166M842 392v166" stroke="#FFFDF7" stroke-width="8"/>
+    <rect x="762" y="438" width="52" height="26" rx="8" fill="#F6D54A" stroke-width="7"/>
+
+    <!-- 装飾 -->
+    <path d="M648 150v30M633 165h30" stroke="#F6D54A" stroke-width="10"/>
+    <path d="M1056 236v24M1044 248h24" stroke="#0C7F89" stroke-width="9"/>
+  </g>
+</svg>
