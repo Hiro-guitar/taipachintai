@@ -1,0 +1,3 @@
+# www あり → なし に統一（301）
+# 両方で同じ内容が見えると、検索エンジンが別サイトとして扱い、評価が分散する。
+https://www.taipachintai.com/* https://taipachintai.com/:splat 301
