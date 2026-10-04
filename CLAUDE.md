@@ -27,6 +27,7 @@ src/pages/*.html        固定ページ
 src/layout.js           共通レイアウト、記事下のCTA、JSON-LD
 public/                 style.css と静的ファイル。そのまま dist/ にコピーされる
 build.js                ビルド。dist/ を作る
+content/KEYWORDS.md     キーワード調査（どの語を狙うかの根拠）
 tools/style-check.js    文体チェック
 worker/                 LINEボット（Cloudflare Worker）
 ```
